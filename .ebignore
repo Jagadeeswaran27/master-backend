@@ -1,13 +1,11 @@
-# .ebignore - Elastic Beanstalk ignore file
-# This overrides .gitignore for EB deployments
+# .ebignore - Elastic Beanstalk ignore file (Option A - server-side build)
 
-# Dependencies (don't deploy node_modules, will be installed on server)
+# Dependencies (don't deploy node_modules)
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
 # Environment variables (set via eb setenv)
 .env
@@ -30,13 +28,6 @@ tests/
 *.swo
 *~
 .DS_Store
-*.sublime-project
-*.sublime-workspace
-
-# OS files
-Thumbs.db
-.AppleDouble
-.LSOverride
 
 # Temporary files
 *.tmp
@@ -44,13 +35,17 @@ Thumbs.db
 .tmp/
 .temp/
 
-# Development files
-src/
-*.ts
-!*.d.ts
-tsconfig.json
+# Keep source TS files (we need them on instance for server-side build)
+# (do NOT exclude src/ or *.ts)
+# (if you previously excluded these, remove those lines)
 
-# Logs
+# Allow tsconfig.json, package files, Procfile
+tsconfig.json
+package.json
+package-lock.json
+Procfile
+
+# Do not include local logs
 logs/
 *.log
 *.log.*
