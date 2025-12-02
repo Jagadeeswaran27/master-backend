@@ -1,12 +1,14 @@
 import express, { type Application } from "express";
 import cors from "cors";
 import helmet from "helmet";
+import dotenv from "dotenv";
 
 import { errorHandler } from "./middlewares/error.middleware.js";
 import v1Router from "./api/v1/index.js";
 import { globalRateLimit } from "./middlewares/rateLimit.middleware.js";
 import { requestLogger } from "./middlewares/logging.middleware.js";
 
+dotenv.config();
 const app: Application = express();
 
 app.use(helmet());
