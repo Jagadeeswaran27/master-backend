@@ -37,13 +37,12 @@ tests/
 
 # Keep source TS files (we need them on instance for server-side build)
 # (do NOT exclude src/ or *.ts)
-# (if you previously excluded these, remove those lines)
 
-# Allow tsconfig.json, package files, Procfile
-tsconfig.json
-package.json
-package-lock.json
-Procfile
+# Ensure build and runtime config files are included
+!tsconfig.json
+!package.json
+!package-lock.json
+!Procfile
 
 # Do not include local logs
 logs/
