@@ -15,7 +15,8 @@ lerna-debug.log*
 .env.production.local
 
 # Build outputs
-build/
+dist
+build
 *.tsbuildinfo
 .cache/
 
